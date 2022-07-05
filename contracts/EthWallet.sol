@@ -13,13 +13,14 @@ contract EthWallet {
     uint _value
   );
 
-  receive() external payable {
+  function deposit() external payable {
     emit ReceiptEvent(msg.sender, msg.value);
   }
 
   function withdraw(uint amount) external {
     require(msg.sender == owner, "Only owner can withdraw");
     owner.transfer(amount);
+    emit ReceiptEvent(msg.sender, amount);
   }
 
   function getAvailableBalance() external view returns (uint) {

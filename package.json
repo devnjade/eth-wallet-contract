@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "deploy": "yarn hardhat clean && yarn hardhat compile && yarn hardhat run scripts/deploy.ts --network ropsten"
+  },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.0",
     "@nomiclabs/hardhat-etherscan": "^3.0.0",
