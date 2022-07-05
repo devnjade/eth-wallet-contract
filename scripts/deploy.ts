@@ -2,7 +2,7 @@ import { ethers } from "hardhat";
 
 async function main() {
   const EthWallet = await ethers.getContractFactory("EthWallet");
-  const ethWallet = await EthWallet.deploy("Hello, Hardhat!");
+  const ethWallet = await EthWallet.deploy();
 
   await ethWallet.deployed();
 
