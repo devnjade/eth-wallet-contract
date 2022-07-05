@@ -8,11 +8,14 @@ contract EthWallet {
     owner = payable(msg.sender);
   } 
 
-  event depositEvent {
-    
-  }
+  event ReceiptEvent (
+    address _sender,
+    uint _value
+  );
 
-  receive() external payable {}
+  receive() external payable {
+    emit ReceiptEvent(msg.sender, msg.value);
+  }
 
   function withdraw(uint amount) external {
     require(msg.sender == owner, "Only owner can withdraw");
@@ -22,5 +25,4 @@ contract EthWallet {
   function getAvailableBalance() external view returns (uint) {
     return address(this).balance;
   }
-
 }
